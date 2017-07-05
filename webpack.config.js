@@ -21,9 +21,9 @@ module.exports = {
 
             //配置服务器
         proxy:{
-           '/v4/api/*': {
-                  target: 'http://m.maizuo.com',
-                  host: 'm.maizuo.com',
+           '/api/*': {
+                  target: 'https://www.v2ex.com',
+                  host: 'www.v2ex.com',
                   changeOrigin:true
               }
         }

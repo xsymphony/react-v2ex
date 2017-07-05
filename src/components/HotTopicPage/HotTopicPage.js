@@ -2,7 +2,7 @@
  * Created by Administrator on 2017/7/4.
  */
 import React from 'react'
-import Header from './Header'
+import Header from '../Header/Header'
 
 
 class HotTopic extends React.Component {
