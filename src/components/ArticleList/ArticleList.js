@@ -15,22 +15,23 @@ class ArticleList extends React.Component {
 
 	_getData(url){
 		axios.get(url)
-			.then(res => {
+			.then(res => res.data)
+			.then(data => (
 				this.setState({
-					articles: res.data
+					articles:data
 				})
-			})
+			))
 	}
 
 	componentDidMount() {
-		let topic = this.props.topic.slice(1)
-		if(topic==="") {
+		let topics = this.props.topics
+		if(topics===undefined) {
 			this._getData(`/api/topics/latest.json`)
 		} else {
-			if (topic==="hot") {
+			if (topics==="hot") {
 				this._getData(`/api/topics/hot.json`)
 			} else {
-				this._getData(`/api/topics/show.json?node_name=${topic}`)
+				this._getData(`/api/topics/show.json?node_name=${topics}`)
 			}
 		}
 	}

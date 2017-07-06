@@ -4,7 +4,9 @@
 import React from 'react'
 import Header from '../Header/Header'
 import ArticleList from '../ArticleList/ArticleList'
-
+import {
+	Button,Loader,NavBar,Container,Group
+} from 'amazeui-touch';
 
 class Home extends React.Component {
 	constructor(props) {
@@ -16,11 +18,18 @@ class Home extends React.Component {
 			"/": "主页",
 			"/hot": "最热",
 		};
+		const topics = this.props.match.params.topics
+		console.log(topics)
 
 		return (
 			<div>
-				<Header pageName={title[this.props.match.url]}/>
-				<ArticleList topic={this.props.match.url}/>
+
+
+
+						<Header pageName={topics}/>
+						<ArticleList topics={topics}/>
+
+
 			</div>
 		)
 	}
