@@ -2,37 +2,55 @@
  * Created by Administrator on 2017/7/4.
  */
 import React from 'react'
-import Header from '../Header/Header'
+import {Link} from 'react-router-dom'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import Navbar from '../Navbar/Navbar'
+import * as actions from '../../redux/Action/action'
 import ArticleList from '../ArticleList/ArticleList'
-import {
-	Button,Loader,NavBar,Container,Group
-} from 'amazeui-touch';
 
-class Home extends React.Component {
+
+class HomePage extends React.Component {
 	constructor(props) {
 		super(props);
+		let topics = this.props.match.params.topics
+		this.props.actions.fetchTopics(topics)
+	}
+
+	changeTheTopics(target) {
+		this.props.actions.fetchTopics(target)
 	}
 
 	render() {
-		const title = {
-			"/": "主页",
-			"/hot": "最热",
-		};
-		const topics = this.props.match.params.topics
-		console.log(topics)
-
 		return (
 			<div>
-
-
-
-						<Header pageName={topics}/>
-						<ArticleList topics={topics}/>
-
-
+				<Navbar/>
+				<div>
+					<Link to='/python' onClick={() => this.changeTheTopics('python')}>python</Link>
+				</div>
+				<ArticleList articles={this.props.data}/>
 			</div>
 		)
 	}
 }
+
+const mapStateToProps = state => {
+	let data = state.payload;
+	if(data) {
+		return {
+			data: data
+		}
+	}
+	return {data:[{}]}
+};
+
+const mapDispatchToProps = dispatch => ({
+	actions: bindActionCreators(actions,dispatch)
+});
+
+const Home = connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(HomePage);
 
 export default Home

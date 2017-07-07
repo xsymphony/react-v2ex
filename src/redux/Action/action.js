@@ -11,12 +11,12 @@ const GET_TOPIC = "GET_TOPIC";
 //Action Creator
 const received = (type, data) => {
 	switch (type) {
-		case "TOPICS":
+		case "GET_TOPICS":
 			return {
 				type: type,
 				payload: data
 			};
-		case "TOPIC":
+		case "GET_TOPIC":
 			return {
 				type: type,
 				payload: {
@@ -34,7 +34,7 @@ const received = (type, data) => {
 export const fetchTopics = topics => dispatch => {
 	let url = '';
 	if(topics) {
-		if (topic === 'hot') {
+		if (topics === 'hot') {
 			url = `/api/topics/hot.json`
 		} else if(topics === 'latest') {
 			url = `/api/topics/latest.json`
@@ -44,10 +44,10 @@ export const fetchTopics = topics => dispatch => {
 	} else {
 		url = `/api/topics/latest.json`
 	}
-	console.log(`axios.get url:&{url}`);
-	return axios(url)
+	console.log(`axios.get url:${url}`);
+	return axios.get(url)
 		.then(res => res.data)
-		.then(data => dispatch(received(GET_TOPICS, data)))
+		.then(data => dispatch(received('GET_TOPICS', data)))
 }
 
 
@@ -69,3 +69,4 @@ export const fetchTopic = (id) => dispatch => {
 				})
 		})
 }
+

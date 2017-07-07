@@ -4,11 +4,12 @@
 const Reducer = (state = {}, action) => {
 	console.log(action.type);
 	switch (action.type) {
-		case "TOPICS":
+		case "GET_TOPICS":
 			return {
+				type:action.type,
 				payload: action.payload
 			}
-		case "TOPIC":
+		case "GET_TOPIC":
 			return {
 				topic: action.payload.topic,
 				replies: action.payload.replies

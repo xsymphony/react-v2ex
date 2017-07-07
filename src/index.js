@@ -6,6 +6,7 @@ import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import Reducer from './redux/Reducer/reducer'
+import 'amazeui-touch/dist/amazeui.touch.min.css'
 
 //import 'amazeui-touch/dist/amazeui.touch.css';
 
@@ -16,7 +17,7 @@ const store = createStore(
 
 
 ReactDOM.render(
-	<Provider store={store}>
+<Provider store={store}>
 		<App/>
 	</Provider>,
 	document.getElementById("box")

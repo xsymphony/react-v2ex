@@ -4,20 +4,28 @@
 import React from "react";
 import {
 	BrowserRouter as Router,
-	Route
+	Route,
+	Link,
+	Redirect
 } from 'react-router-dom'
-import { Provider } from "react-redux"
-import store from "../redux/Store/store"
 
 import Home from '../components/HomePage/HomePage'
 import AboutMe from '../components/AboutPage/AboutPage'
 
 const App = () => (
 	<Router>
-		<div>
-			<Route exact path="/" component={Home}/>
-			<Route exact path="/:topics" component={Home}/>
+		{/*	<div>
+			<li><Link to="/programmer">程序员</Link></li>
+			<li><Link to="/latest">最新</Link></li>
+			<li><Link to="/hot">最热</Link></li>
+			<li><Link to="/python">python</Link></li>
+			<li><Link to="/about">关于</Link></li>
 		</div>
+		*/}
+		<div>
+			<Route exact path="/:topics" component={Home}/>
+			<Redirect from="/" to="hot"/>
+ 		</div>
 	</Router>
 )
 
