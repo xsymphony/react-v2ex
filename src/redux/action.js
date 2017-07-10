@@ -19,10 +19,8 @@ const received = (type, data) => {
 		case "GET_TOPIC":
 			return {
 				type: type,
-				payload: {
-					topic: data.topic,
-					replies: data.replies
-				}
+				topic: data.topic,
+				replies: data.replies
 			};
 		default:
 			return {}
@@ -47,16 +45,16 @@ export const fetchTopics = topics => dispatch => {
 	console.log(`axios.get url:${url}`);
 	return axios.get(url)
 		.then(res => res.data)
-		.then(data => dispatch(received('GET_TOPICS', data)))
+		.then(data => dispatch(received(GET_TOPICS, data)))
 }
 
 
 //获取某一帖子下内容和回复的异步action
-export const fetchTopic = (id) => dispatch => {
+export const fetchTopic = id => dispatch => {
 	const result = {'topic':{},'replies':[]};
 	let topicUrl = `/api/topics/show.json?id=${id}`;
 	let repliesUrl = `/api/replies/show.json?topic_id=${id}`;
-	console.log(topicUrl);
+	console.log(topicUrl,repliesUrl);
 	return axios(topicUrl)
 		.then(res => res.data)
 		.then(data => {
@@ -65,7 +63,7 @@ export const fetchTopic = (id) => dispatch => {
 				.then(res => res.data)
 				.then(data => {
 					result.replies = data;
-					dispatch(received(GET_TOPIC, result))
+					dispatch(received(GET_TOPIC, result));
 				})
 		})
 }

@@ -6,14 +6,13 @@ const Reducer = (state = {}, action) => {
 	switch (action.type) {
 		case "GET_TOPICS":
 			return {
-				type:action.type,
 				payload: action.payload
-			}
+			};
 		case "GET_TOPIC":
 			return {
-				topic: action.payload.topic,
-				replies: action.payload.replies
-			}
+				topic: action.topic,
+				replies: action.replies
+			};
 		default:
 			return state
 	}

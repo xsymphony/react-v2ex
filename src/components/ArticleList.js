@@ -2,8 +2,7 @@
  * Created by Administrator on 2017/7/4.
  */
 import React from 'react'
-import axios from 'axios'
-import Link from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 class ArticleList extends React.Component {
@@ -18,7 +17,7 @@ class ArticleList extends React.Component {
 			items = articles.map((article,i) => {
 				return (
 					<div key={i}>
-						<div>{article.title}</div>
+						<div><Link to={`/t/${article.id}`}>{article.title}</Link></div>
 						<img src={article.member.avatar_normal}/>
 						<div>{article.member.username}</div>
 						<hr/>

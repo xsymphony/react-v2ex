@@ -1,14 +1,13 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import App from "./router/router"
+import AppRoute from "./router/router"
+import "./App.css"
 
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
-import Reducer from './redux/Reducer/reducer'
-import 'amazeui-touch/dist/amazeui.touch.min.css'
+import Reducer from './redux/reducer'
 
-//import 'amazeui-touch/dist/amazeui.touch.css';
 
 const store = createStore(
 	Reducer,
@@ -17,8 +16,8 @@ const store = createStore(
 
 
 ReactDOM.render(
-<Provider store={store}>
-		<App/>
+	<Provider store={store}>
+		<AppRoute/>
 	</Provider>,
 	document.getElementById("box")
 );

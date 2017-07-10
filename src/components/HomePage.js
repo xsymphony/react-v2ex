@@ -2,32 +2,29 @@
  * Created by Administrator on 2017/7/4.
  */
 import React from 'react'
-import {Link} from 'react-router-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import Navbar from '../Navbar/Navbar'
-import * as actions from '../../redux/Action/action'
-import ArticleList from '../ArticleList/ArticleList'
+import * as actions from '../redux/action'
+import ArticleList from './ArticleList'
 
 
 class HomePage extends React.Component {
 	constructor(props) {
 		super(props);
-		let topics = this.props.match.params.topics
-		this.props.actions.fetchTopics(topics)
 	}
 
-	changeTheTopics(target) {
-		this.props.actions.fetchTopics(target)
+	componentDidMount() {
+		let topics = this.props.match.url.slice(1)
+		if(topics) {
+			this.props.actions.fetchTopics(topics)
+		} else {
+			this.props.actions.fetchTopics('hot')
+		}
 	}
 
 	render() {
 		return (
 			<div>
-				<Navbar/>
-				<div>
-					<Link to='/python' onClick={() => this.changeTheTopics('python')}>python</Link>
-				</div>
 				<ArticleList articles={this.props.data}/>
 			</div>
 		)
