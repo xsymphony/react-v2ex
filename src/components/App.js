@@ -4,7 +4,7 @@
 import React from 'react'
 import NavBar from './Navbar'
 
-
+//使所有路由都加载NavBar组件
 class App extends React.Component {
 	constructor(props) {
 		super(props);

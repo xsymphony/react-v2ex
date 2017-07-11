@@ -5,48 +5,58 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as actions from '../redux/action'
+import { Format } from '../Format'
+import OnLoading from './OnLoading'
 
 
+//加载对应话题下的详情与回复
 class Topic extends React.Component {
 	constructor(props) {
 		super(props);
 	}
 	componentDidMount() {
-		let id = this.props.match.params.id
+		let id = this.props.match.params.id;
 		this.props.actions.fetchTopic(id)
 	}
 
 	render() {
 		const {topic,replies} = this.props;
+
 		//获取回复列表
 		let repliesItems = [];
-		if(replies[0].id) {
+		if(replies.length>0) {
 		repliesItems = replies.map((reply,i) => {
 			return (
 				<div key={i} className="reply-container">
-					<img src={reply.member.avatar_normal}></img>
-					<div>{reply.member.username}</div>
-					<div
-						dangerouslySetInnerHTML={{__html: reply.content_rendered}}/>
-					<hr/>
+					<div className="reply-avatar"><img src={reply.member.avatar_mini}></img></div>
+					<div className="reply-content">
+						<div><span>{reply.member.username}</span></div>
+						<div
+							dangerouslySetInnerHTML={{__html: reply.content_rendered}}/>
+					</div>
 				</div>
 			)
 		})}
 
 		return (
-			<div className="topic-container">
-			{topic.member&&replies[1] ?
-				<div>
-					<div>
-						<div>{topic.title}</div>
-						<div>{topic.member.username}</div>
-						<img src={topic.member.avatar_large}></img>
+			<div>
+			{topic.member ?
+				<div className="topic-container">
+					<div className="topic">
+						<div className="topic-title">
+							<div className="left-info">
+								<div><strong>{topic.title}</strong></div>
+								<div><span>{topic.member.username} {Format.date(topic.last_modified)}</span></div>
+							</div>
+							<div className="right-avatar">
+								<img src={topic.member.avatar_normal} className="right-avater-img"></img>
+							</div>
+						</div>
 						<div
 							dangerouslySetInnerHTML={{__html: topic.content_rendered}}/>
 					</div>
-					<hr/>
 					{repliesItems}
-				</div> : <div className="onload">加载中...</div> }
+				</div> : <OnLoading/> }
 			</div>
 		)
 	}
@@ -61,12 +71,12 @@ const mapStateToProps = state => {
 			replies:replies
 		}
 	}
-	return {topic:{},replies:[{}]}
+	return {topic:{},replies:[]}
 };
 
 const mapDispatchToProps = dispatch => ({
 	actions: bindActionCreators(actions,dispatch)
 });
 
-const Topics = connect(mapStateToProps, mapDispatchToProps)(Topic)
-export default Topics
+
+export default connect(mapStateToProps, mapDispatchToProps)(Topic)

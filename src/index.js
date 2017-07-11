@@ -1,7 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import AppRoute from "./router/router"
-import "./App.css"
+import "./style/style.css"
 
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'

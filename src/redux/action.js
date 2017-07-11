@@ -11,12 +11,12 @@ const GET_TOPIC = "GET_TOPIC";
 //Action Creator
 const received = (type, data) => {
 	switch (type) {
-		case "GET_TOPICS":
+		case GET_TOPICS:
 			return {
 				type: type,
 				payload: data
 			};
-		case "GET_TOPIC":
+		case GET_TOPIC:
 			return {
 				type: type,
 				topic: data.topic,

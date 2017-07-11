@@ -8,13 +8,15 @@ import * as actions from '../redux/action'
 import ArticleList from './ArticleList'
 
 
+//主页
 class HomePage extends React.Component {
 	constructor(props) {
 		super(props);
 	}
 
 	componentDidMount() {
-		let topics = this.props.match.url.slice(1)
+		//根据当前路由加载相应的页面资源
+		let topics = this.props.match.url.slice(1);
 		if(topics) {
 			this.props.actions.fetchTopics(topics)
 		} else {

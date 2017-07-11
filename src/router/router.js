@@ -13,7 +13,7 @@ import {
 import App from '../components/App'
 import Home from '../components/HomePage'
 import AboutMe from '../components/AboutPage'
-import Topics from '../components/Topic'
+import Topic from '../components/Topic'
 
 
 /*Todo:bug:
@@ -50,7 +50,7 @@ const AppRoute = () => (
 					<Route path="/linux" component={Home}/>
 					<Route path="/programmer" component={Home}/>
 					<Route path="/aboutme" component={AboutMe}/>
-					<Route path="/t/:id" component={Topics}/>
+					<Route path="/t/:id" component={Topic}/>
 				</App>
 			)}/>
 		</Switch>
