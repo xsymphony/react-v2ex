@@ -1,7 +1,7 @@
 {
-  "name": "test",
+  "name": "React-V2EX",
   "version": "1.0.0",
-  "description": "",
+  "description": "a V2EX web app with react",
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -30,10 +30,6 @@
     "redux-thunk": "^2.2.0",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.13.2",
-    "antd": "^2.12.0",
-    "react-redux": "^5.0.5",
-    "redux": "^3.7.1",
-    "redux-thunk": "^2.2.0",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.1"
   }
