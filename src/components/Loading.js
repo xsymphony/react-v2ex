@@ -4,7 +4,7 @@
 import React from 'react'
 
 
-const OnLoading = () => {
+const Loading = () => {
 	return (
 		<div className="onloading">
 			<div>
@@ -16,4 +16,4 @@ const OnLoading = () => {
 	)
 }
 
-export default OnLoading;
+export default Loading;

@@ -11,9 +11,9 @@ import {
 } from 'react-router-dom'
 
 import App from '../components/App'
-import Home from '../components/HomePage'
-import AboutMe from '../components/AboutPage'
-import Topic from '../components/Topic'
+import Home from '../containers/Home'
+import AboutMe from '../components/About'
+import Topic from '../containers/Topic'
 
 
 /*Todo:bug:

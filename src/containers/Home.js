@@ -5,11 +5,11 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as actions from '../redux/action'
-import ArticleList from './ArticleList'
+import ArticleList from '../components/ArticleList'
 
 
 //主页
-class HomePage extends React.Component {
+class Home extends React.Component {
 	constructor(props) {
 		super(props);
 	}
@@ -47,9 +47,6 @@ const mapDispatchToProps = dispatch => ({
 	actions: bindActionCreators(actions,dispatch)
 });
 
-const Home = connect(
-	mapStateToProps,
-	mapDispatchToProps
-)(HomePage);
 
-export default Home
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

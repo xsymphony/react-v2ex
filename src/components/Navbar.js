@@ -23,7 +23,9 @@ class NavBar extends React.Component {
 		return (
 			<div className="container">
 				<div className="header">
-					<div className="left-icon">Home</div>
+					<div className="left-icon">
+						<Link to="/latest">Home</Link>
+					</div>
 					<div className="title">React</div>
 					<div className="right-icon">
 						<Link to="/aboutme">About</Link>

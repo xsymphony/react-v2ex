@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as actions from '../redux/action'
 import { Format } from '../Format'
-import OnLoading from './OnLoading'
+import Loading from './Loading'
 
 
 //加载对应话题下的详情与回复
@@ -14,6 +14,7 @@ class Topic extends React.Component {
 	constructor(props) {
 		super(props);
 	}
+
 	componentDidMount() {
 		let id = this.props.match.params.id;
 		this.props.actions.fetchTopic(id)
@@ -56,27 +57,11 @@ class Topic extends React.Component {
 							dangerouslySetInnerHTML={{__html: topic.content_rendered}}/>
 					</div>
 					{repliesItems}
-				</div> : <OnLoading/> }
+				</div> : <Loading/> }
 			</div>
 		)
 	}
 }
 
-const mapStateToProps = state => {
-	let topic = state.topic;
-	let replies = state.replies;
-	if(topic) {
-		return {
-			topic:topic,
-			replies:replies
-		}
-	}
-	return {topic:{},replies:[]}
-};
 
-const mapDispatchToProps = dispatch => ({
-	actions: bindActionCreators(actions,dispatch)
-});
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(Topic)
+export default Topic
