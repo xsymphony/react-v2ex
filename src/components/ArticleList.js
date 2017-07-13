@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Format } from '../Format'
+import { Format } from '../utils/Format'
 
 //主页话题的列表
 class ArticleList extends React.Component {

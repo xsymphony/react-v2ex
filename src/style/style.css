@@ -1,8 +1,10 @@
 html {
     font-size: 80%;
+    margin: 0;
+    padding: 0;
 }
 
-body {
+body{
     margin: 0;
     padding: 0;
     font-family: "Helvetica Neue",
@@ -52,6 +54,7 @@ body {
     color: white;
     border-radius: 0 0 0.3rem 0.3rem;
 }
+
 .navbar-detail {
     height: 8rem;
     flex-wrap: wrap;
@@ -166,23 +169,28 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    overflow: hidden;
     line-height: 190%;
     background-color: white;
     border-bottom: 0.2rem solid #e2e2e2;
     border-radius: 0.2rem;
 }
 .reply-avatar {
-    width: 5%;
+    width: 10%;
     padding: 1rem;
 }
 
 .reply-content {
-    width: 95%;
+    width: 85%;
     padding: 0.4rem 1rem 0.4rem 0.1rem;
 }
 
 .reply-content span,a {
     color: #caa;
+}
+
+.rendered-content {
+    overflow: hidden;
 }
 
 .topic-container img,.reply-container img {
@@ -192,12 +200,34 @@ body {
 .onloading {
     display: flex;
     flex-direction: column;
+    height: 20rem;
     align-items: center;
     justify-content: center;
-    height: 20rem;
 }
-.onloading img {
-    width: 4rem;
+
+.onloading-circle{
+    width: 2rem;
+    height: 2rem;
+    border: 0.1rem solid gray;
+    border-radius: 50%;
+    border-bottom-color: transparent;
+    animation: 1s ease-in-out infinite loading;
+}
+
+@keyframes loading {
+    from {
+        transform: translate3d(0, 0, 0) rotate(0deg);
+    }
+    to {
+        transform: translate3d(0, 0, 0) rotate(360deg);
+    }
+}
+
+.ant-back-top {
+    right: 1.8rem;
+    bottom: 2rem;
+    height: 2.5rem;
+    width: 2.5rem;
 }
 
 
