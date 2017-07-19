@@ -55,11 +55,11 @@ export const fetchTopic = id => dispatch => {
 	let topicUrl = `/api/topics/show.json?id=${id}`;
 	let repliesUrl = `/api/replies/show.json?topic_id=${id}`;
 	console.log(topicUrl,repliesUrl);
-	return axios(topicUrl)
+	return axios.get(topicUrl)
 		.then(res => res.data)
 		.then(data => {
 			result.topic = data[0];
-			axios(repliesUrl)
+			axios.get(repliesUrl)
 				.then(res => res.data)
 				.then(data => {
 					result.replies = data;

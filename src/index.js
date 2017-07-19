@@ -1,18 +1,9 @@
 import React from "react"
 import ReactDOM from "react-dom"
+import { Provider } from 'react-redux'
+import store from "./redux/store"
 import AppRoute from "./router/router"
 import "./style/style.css"
-
-import { createStore, applyMiddleware } from 'redux'
-import { Provider } from 'react-redux'
-import thunk from 'redux-thunk'
-import Reducer from './redux/reducer'
-
-
-const store = createStore(
-	Reducer,
-	applyMiddleware(thunk)
-);
 
 
 ReactDOM.render(
