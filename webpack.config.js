@@ -1,47 +1,47 @@
-var webpack =require("webpack");
+var webpack = require("webpack");
 
 module.exports = {
-  devtool:"source-map",
+  devtool: "source-map",
 
   entry: {
-    index:__dirname + "/src/index.js"
+    index: __dirname + "/src/index.js"
   },
 
   output: {
     path: __dirname + "/dist",
     filename: "[name].bundle.js",
-    publicPath:"/dist/"
+    publicPath: "/dist/"
   },
 
   devServer: {
-    inline:true,
+    inline: true,
     contentBase: "./",
     port: '8088',
     historyApiFallback: true,
 
-    proxy:{
+    proxy: {
       '/api/*': {
         target: 'https://www.v2ex.com',
         host: 'www.v2ex.com',
-        changeOrigin:true
+        changeOrigin: true
       }
     }
   },
 
 
-  module:{
-    loaders:[
+  module: {
+    loaders: [
 
       {
         test: /\.css$/,
         loader: 'style-loader!css-loader'
       },
       {
-        test:/\.js$/,
+        test: /\.js$/,
         exclude: /node_modules/,
-        loader:'babel-loader',
-        query:{
-          presets:['es2015','react'],
+        loader: 'babel-loader',
+        query: {
+          presets: ['es2015', 'react'],
         }
 
       },
@@ -63,12 +63,12 @@ module.exports = {
     ]
   },
 
-	/*plugins: [
-		new webpack.optimize.UglifyJsPlugin({
-			compress: {
-				warnings: false
-			}
-		})
-	]*/
+  /*plugins: [
+  	new webpack.optimize.UglifyJsPlugin({
+  		compress: {
+  			warnings: false
+  		}
+  	})
+  ]*/
 
 };

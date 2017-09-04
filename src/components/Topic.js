@@ -13,11 +13,6 @@ class Topic extends React.Component {
 		super(props);
 	}
 
-	/*componentDidMount() {
-		let id = this.props.match.params.id;
-		this.props.actions.fetchTopic(id)
-	}*/
-
 	render() {
 		const {topic,replies} = this.props;
 

@@ -8,7 +8,7 @@
     "dev": "webpack-dev-server --inline --hot --open",
     "build": "webpack --progress --hide-modules"
   },
-  "author": "",
+  "author": "xsy",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.16.2",
