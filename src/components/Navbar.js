@@ -20,6 +20,56 @@ class NavBar extends React.Component {
 	}
 
 	render() {
+    const collapseBar = 
+          <div className="navbar">
+          <div className="navbar-item">
+            <Link to="/hot">最热</Link>
+          </div>
+          <div className="navbar-item">
+            <Link to="/latest">最新</Link>
+          </div>
+          <div className="navbar-item">
+            <Link to="/python">python</Link>
+          </div>
+          <div className="navbar-item">
+            <Link to="/nodejs">node.js</Link>
+          </div>
+          <div
+            className="navbar-item"
+            onClick={this.onChaneSpread.bind(this)}>
+            More>>
+          </div>
+        </div>
+    const uncollapseBar = 
+          <div className="navbar navbar-detail">
+          <div className="detail-header-left">切换话题</div>
+          <div
+            className="detail-item"
+            onClick={this.onChaneSpread.bind(this)}>
+            收起
+          </div>
+          <div className="detail-item">
+            <Link to="/hot">最热</Link>
+          </div>
+          <div className="detail-item">
+            <Link to="/latest">最新</Link>
+          </div>
+          <div className="detail-item">
+            <Link to="/programmer">程序员</Link>
+          </div>
+          <div className="detail-item">
+            <Link to="/linux">Linux</Link>
+          </div>
+          <div className="detail-item">
+            <Link to="/qna">问与答</Link>
+          </div>
+          <div className="detail-item">
+            <Link to="/jobs">酷工作</Link>
+          </div>
+          <div className="detail-item">
+            <Link to="/apple">Apple</Link>
+          </div>
+        </div>
 		return (
 			<div className="container">
 				<div className="header">
@@ -31,57 +81,7 @@ class NavBar extends React.Component {
 						<Link to="/aboutme">About</Link>
 					</div>
 				</div>
-				{this.state.spread ?
-					<div className="navbar">
-						<div className="navbar-item">
-							<Link to="/hot">最热</Link>
-						</div>
-						<div className="navbar-item">
-							<Link to="/latest">最新</Link>
-						</div>
-						<div className="navbar-item">
-							<Link to="/python">python</Link>
-						</div>
-						<div className="navbar-item">
-							<Link to="/nodejs">node.js</Link>
-						</div>
-						<div
-							className="navbar-item"
-							onClick={this.onChaneSpread.bind(this)}>
-							More>>
-						</div>
-					</div>
-					:
-					<div className="navbar navbar-detail">
-						<div className="detail-header-left">切换话题</div>
-						<div
-							className="detail-item"
-							onClick={this.onChaneSpread.bind(this)}>
-							收起
-						</div>
-						<div className="detail-item">
-							<Link to="/hot">最热</Link>
-						</div>
-						<div className="detail-item">
-							<Link to="/latest">最新</Link>
-						</div>
-						<div className="detail-item">
-							<Link to="/programmer">程序员</Link>
-						</div>
-						<div className="detail-item">
-							<Link to="/linux">Linux</Link>
-						</div>
-						<div className="detail-item">
-							<Link to="/qna">问与答</Link>
-						</div>
-						<div className="detail-item">
-							<Link to="/jobs">酷工作</Link>
-						</div>
-						<div className="detail-item">
-							<Link to="/apple">Apple</Link>
-						</div>
-					</div>
-				}
+				{ this.state.spread ? collapseBar: uncollapseBar }
 			</div>
 		)
 	}
