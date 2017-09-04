@@ -2,9 +2,6 @@
  * Created by Administrator on 2017/7/10.
  */
 import React from 'react'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import * as actions from '../redux/action'
 import { Format } from '../utils/Format'
 import Loading from './Loading'
 import BackToTop from "./BackTop";
@@ -16,10 +13,10 @@ class Topic extends React.Component {
 		super(props);
 	}
 
-	componentDidMount() {
+	/*componentDidMount() {
 		let id = this.props.match.params.id;
 		this.props.actions.fetchTopic(id)
-	}
+	}*/
 
 	render() {
 		const {topic,replies} = this.props;
