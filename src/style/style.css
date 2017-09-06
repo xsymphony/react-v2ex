@@ -203,6 +203,7 @@ body{
     height: 20rem;
     align-items: center;
     justify-content: center;
+    background-color: white;
 }
 
 .onloading-circle{
