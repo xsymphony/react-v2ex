@@ -3,6 +3,7 @@
  */
 import axios from 'axios'
 
+const BASE_URL = "https://www.v2ex.com"
 
 const GET_TOPICS= "GET_TOPICS";
 const GET_TOPIC = "GET_TOPIC";
@@ -33,14 +34,14 @@ export const fetchTopics = topics => dispatch => {
 	let url = '';
 	if(topics) {
 		if (topics === 'hot') {
-			url = `/api/topics/hot.json`
+			url = BASE_URL + `/api/topics/hot.json`
 		} else if(topics === 'latest') {
-			url = `/api/topics/latest.json`
+			url = BASE_URL + `/api/topics/latest.json`
 		} else {
-			url = `/api/topics/show.json?node_name=${topics}`
+			url = BASE_URL + `/api/topics/show.json?node_name=${topics}`
 		}
 	} else {
-		url = `/api/topics/latest.json`
+		url = BASE_URL + `/api/topics/latest.json`
 	}
 	console.log(`axios.get url:${url}`);
 	return axios.get(url)
@@ -52,8 +53,8 @@ export const fetchTopics = topics => dispatch => {
 //获取某一帖子下内容和回复的异步action
 export const fetchTopic = id => dispatch => {
 	const result = {'topic':{},'replies':[]};
-	let topicUrl = `/api/topics/show.json?id=${id}`;
-	let repliesUrl = `/api/replies/show.json?topic_id=${id}`;
+	let topicUrl = BASE_URL + `/api/topics/show.json?id=${id}`;
+	let repliesUrl = BASE_URL + `/api/replies/show.json?topic_id=${id}`;
 	console.log(topicUrl,repliesUrl);
 	return axios.get(topicUrl)
 		.then(res => res.data)
