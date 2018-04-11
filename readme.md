@@ -1,7 +1,7 @@
 ## 预览
 手机扫码预览
 
-![img](https://github.com/xiongsyao/react-v2ex/blob/master/static/%E4%BA%8C%E7%BB%B4%E7%A0%81.png)
+![img](https://github.com/xiongsyao/react-v2ex/blob/master/static/review.png)
 
 或者访问http://v2.nyork.top:8082
 ## react构建V2EX
